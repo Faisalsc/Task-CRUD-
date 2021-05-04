@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { AiOutlinePlus, AiOutlineMinus, AiOutlineEdit, AiOutlineDelete, AiOutlineShareAlt } from "react-icons/ai";
 import "./task.css";
 import { FORM_INITIAL_VALUE, FORM_HANDLE_CHANGE, Active, DELETE_TASK, CREATE_TASK, UPDATE_TASK } from "../actions/actions";
 import TaskForm from "./form";
@@ -71,8 +72,8 @@ class TaskManagement extends Component {
         <div className="accordian-container">
           <div className={`accordion ${this.props.active ? "active" : ""}`} >
             <label>{`Tasks(${this.props.taskValues.length})`}</label>
-            {!this.props.active ? <i className="fas fa-plus" style={{ float: "right" }} onClick={() => this.handleAccordianClick(this.props.active)}></i> : null}
-            {this.props.active ? <i className="fas fa-minus" style={{ float: "right" }} onClick={() => this.handleAccordianClick(this.props.active)}></i> : null}
+            {!this.props.active ? <AiOutlinePlus style={{ float: "right" }} onClick={() => this.handleAccordianClick(this.props.active)}></AiOutlinePlus> : null}
+            {this.props.active ? <AiOutlineMinus style={{ float: "right" }} onClick={() => this.handleAccordianClick(this.props.active)}></AiOutlineMinus> : null}
           </div>
           <div className={this.props.active ? "panel element-display" : "panel element-hide"}>
 
@@ -91,9 +92,10 @@ class TaskManagement extends Component {
                     <h4><b>{task.assignUser}</b></h4>
                     <p>{task.taskDescription}</p>
                   </div>
-                  <i className="fas fa-edit" style={{ "marginLeft": "30px" }} onClick={() => this.handleEdit(task)}></i>
-                  <i className="fas fa-trash-alt" style={{ "marginLeft": "30px" }} onClick={() => this.handleDelete(task)}></i>
-                  <i className="fas fa-share" style={{ "marginLeft": "30px" }} onClick={() => this.handleShare(task)}></i>
+
+                  <AiOutlineEdit style={{ "marginLeft": "30px" }} onClick={() => this.handleEdit(task)}></AiOutlineEdit>
+                  <AiOutlineDelete style={{ "marginLeft": "30px" }} onClick={() => this.handleDelete(task)}></AiOutlineDelete>
+                  <AiOutlineShareAlt style={{ "marginLeft": "30px" }} onClick={() => this.handleShare(task)}></AiOutlineShareAlt>
                 </div>
               })
               : <p>No Tasks found</p>
