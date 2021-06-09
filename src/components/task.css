@@ -27,15 +27,15 @@
       display: none;
   }
   .accordian-container{
-    max-width: 250px;
-    min-width: 300px;
+    /* max-width: 250px;
+    min-width: 300px; */
   }
   .card-container{
     display: flex;
     align-items: center;
   }
   .root-container{
-    display: flex;
+    /* display: flex; */
     max-height: 67px
   }
   .card-root{
